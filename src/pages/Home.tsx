@@ -15,9 +15,9 @@ const ListTexts = styled.div`
 
 const pagesInit = [
   {
-    id: 0,
-    date: 'loading...',
-    title: 'loading...'
+    Id: 0,
+    Date: 'loading...',
+    Title: 'loading...'
   },
 ]
 
@@ -25,16 +25,16 @@ const Home = () => {
   const [pages, setPages] = useState(pagesInit)
 
   useEffect(() => {
-    fetch('https://sepezho.com:4646/blogapi').then(e => e.json()).then(e => {
+    fetch('https://blog.sepezho.com:4646/api/list').then(e => e.json()).then(e => {
       console.log(e)
-      setPages(e.pages)
+      setPages(e.data)
     })
   }, [])
 
   return <div>
     <ListTexts>
       <h1>Posts</h1>
-      {pages.map(e => (<Link to={`/post/${e.id}`}><button key={e.id}> {`#${e.id} / ${e.date} / ${e.title}`} </ button></Link>))}
+      {pages.map(e => (<Link to={`/post/${e.Id}`}><button key={e.Id}> {`#${e.Id} / ${e.Date} / ${e.Title}`} </ button></Link>))}
     </ListTexts>
   </div >;
 };

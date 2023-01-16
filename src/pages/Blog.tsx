@@ -23,16 +23,23 @@ function Blog() {
   const [date, setDate] = useState(`loading...`)
   const [text, setText] = useState(`loading...`)
 
+  const { id } = useParams();
+
   useEffect(() => {
-    fetch('https://sepezho.com:4646/blogapi').then(e => e.json()).then(e => {
+    fetch('https://blog.sepezho.com:4646/api/post', {
+      body: JSON.stringify({ id: id }),
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+    }).then(e => e.json()).then(e => {
       console.log(e)
-      setTitle(e.title)
-      setDate(e.date)
-      setText(e.text)
+      setTitle(e.data[0].Title)
+      setDate(e.data[0].Date)
+      setText(e.data[0].Text)
     })
   }, [])
-
-  const { id } = useParams();
 
   return (
     <div className="App">
