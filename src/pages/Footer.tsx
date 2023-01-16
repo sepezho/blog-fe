@@ -1,12 +1,10 @@
-import { Outlet, Link } from "react-router-dom";
 
 const Layout = () => {
   return (
     <>
       <div style={{ textAlign: 'center' }}>
-        <Link to="/">Home</Link>
+        Work is still in process. More you can find in <a href="https://github.com/sepezho/blog-fe">github</a>.
       </div>
-      <Outlet />
     </>
   )
 };

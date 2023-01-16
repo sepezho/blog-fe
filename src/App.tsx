@@ -6,26 +6,25 @@ import styled from 'styled-components'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Layout from "./pages/Layout";
+import Footer from "./pages/Footer";
 import Home from "./pages/Home";
 import Blogs from "./pages/Blog";
 import NoPage from "./pages/NoPage";
-
 
 function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route path="post/:id" element={<Blogs />} />
-              <Route path="*" element={<NoPage />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="post/:id" element={<Blogs />} />
+            <Route path="*" element={<NoPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      <Footer />
     </div>
   );
 }
