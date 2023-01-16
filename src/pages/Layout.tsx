@@ -6,11 +6,11 @@ const Layout = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <div style={{ margin: 'auto' }}
+            ><Link to="/">Home</Link>
+            </div>
           </li>
-          <li>
-            <Link to="/blog">Blogs</Link>
-          </li>
+
         </ul>
       </nav>
 

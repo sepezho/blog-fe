@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Blogs from "./pages/Blog";
 import NoPage from "./pages/NoPage";
 
+
 function App() {
 
   return (
@@ -19,7 +20,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
-              <Route path="blog" element={<Blogs />} />
+              <Route path="post/:id" element={<Blogs />} />
               <Route path="*" element={<NoPage />} />
             </Route>
           </Routes>

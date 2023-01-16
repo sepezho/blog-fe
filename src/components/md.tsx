@@ -3,6 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import ReactMarkdown from 'react-markdown'
 import styled from 'styled-components'
+import {
+  useParams
+} from "react-router-dom";
 
 const MdContainer = styled.div`
   max-widht: 500px;
@@ -32,15 +35,16 @@ function App() {
 
 А теперь логичный вывод. Мир хаотичен, выигрывает в этом хаосе тот, то научился в нем правильно двигаться. Везения и таланта, кармы и бога нету… и все, что тебе остается делать - это пытаться, пробовать и еще раз пытаться. Чем больше попыток, тем больше шанс, что одна из них стрельнет когда-нибудь. И вот, поздравляю! Теперь для окружающих ты стал человеком, которому “просто повезло оказаться в нужном месте в нужное время”
 `)
-
+  const { id } = useParams();
   return (
     <div className="App">
       <header className="App-header">
         <Container>
           <MdContainer>
+            ID: {id}
             <ReactMarkdown children={text} />
-          </MdContainer> 
-        </Container> 
+          </MdContainer>
+        </Container>
       </header>
     </div>
   );
