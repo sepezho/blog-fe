@@ -1,16 +1,21 @@
 import styled from 'styled-components'
 import React, { useEffect, useState } from 'react';
-
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import { Link } from "react-router-dom";
+dayjs.extend(relativeTime);
 
 const ListTexts = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   button {
-    max-width: 500px;
+    width: 300px;
     margin: 4px 0;
+    text-align: left;
+    cursor: pointer;
   }
+  margin: 0 0 16px 0;
 `
 
 const pagesInit = [
@@ -34,7 +39,8 @@ const Home = () => {
   return <div>
     <ListTexts>
       <h1>Posts</h1>
-      {pages.map(e => (<Link to={`/post/${e.Id}`}><button key={e.Id}> {`#${e.Id} / ${e.Date} / ${e.Title}`} </ button></Link>))}
+      {pages.map(e => (<Link to={`/post/${e.Id}`}><button key={e.Id}> {`#${e.Id} ||| ${dayjs(e.Date).fromNow()} ||| ${e.Title}`} </ button></Link>))}
+
     </ListTexts>
   </div >;
 };

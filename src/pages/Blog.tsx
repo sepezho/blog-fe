@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import ReactMarkdown from 'react-markdown'
 import styled from 'styled-components'
+import dayjs from 'dayjs'
 
 import {
   useParams
@@ -46,11 +47,11 @@ function Blog() {
       <header className="App-header">
         <Container>
           <MdContainer>
-            post id: {id}
+            <h1>Posts #{id}</h1>
             <br />
-            post tile: {title}
+            title: {title}
             <br />
-            post date: {date}
+            date: {dayjs(date).format('DD/MM/YYYY')}
             <ReactMarkdown children={text} />
           </MdContainer>
         </Container>

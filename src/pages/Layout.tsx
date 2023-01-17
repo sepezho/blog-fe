@@ -5,6 +5,7 @@ const Layout = () => {
     <>
       <div style={{ textAlign: 'center' }}>
         <Link to="/">Home</Link>
+        <br />
       </div>
       <Outlet />
     </>
