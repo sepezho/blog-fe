@@ -23,6 +23,7 @@ function Blog() {
   const [title, setTitle] = useState(`loading...`)
   const [date, setDate] = useState(`loading...`)
   const [text, setText] = useState(`loading...`)
+  const [views, setViews] = useState(`loading...`)
 
   const { id } = useParams();
 
@@ -39,6 +40,7 @@ function Blog() {
       setTitle(e.data[0].Title)
       setDate(e.data[0].Date)
       setText(e.data[0].Text)
+      setViews(e.data[0].Views)
     })
   }, [])
 
@@ -50,6 +52,8 @@ function Blog() {
             <h1>Posts #{id}</h1>
             <br />
             title: {title}
+            <br />
+            views: {views}
             <br />
             date: {dayjs(date).format('DD/MM/YYYY')}
             <ReactMarkdown children={text} />
