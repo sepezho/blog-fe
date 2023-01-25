@@ -32,7 +32,7 @@ const Home = () => {
   useEffect(() => {
     fetch('https://blog.sepezho.com:4646/api/list').then(e => e.json()).then(e => {
       console.log(e)
-      setPages(e.data)
+      setPages(e.data.reverse())
     })
   }, [])
 
@@ -40,7 +40,6 @@ const Home = () => {
     <ListTexts>
       <h1>Posts</h1>
       {pages.map(e => (<Link to={`/post/${e.Id}`}><button key={e.Id}> {`#${e.Id} ||| ${dayjs(e.Date).fromNow()} ||| ${e.Title}`} </ button></Link>))}
-
     </ListTexts>
   </div >;
 };
