@@ -9,8 +9,8 @@ import {
 } from "react-router-dom";
 
 const MdContainer = styled.div`
-  max-widht: 500px;
-  width: 500px;
+  max-widht: 700px;
+  width: 700px;
 `
 
 const Container = styled.div`

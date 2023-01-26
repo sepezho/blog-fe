@@ -10,7 +10,7 @@ const ListTexts = styled.div`
   flex-direction: column;
   align-items: center;
   button {
-    width: 300px;
+    width: 700px;
     margin: 4px 0;
     text-align: left;
     cursor: pointer;

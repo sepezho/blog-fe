@@ -1,11 +1,17 @@
+@font-face {
+  font-family: tnr;
+  src: url(./static/TNR.ttf);
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+  /* font-family: tnr; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: black;
+  font-size: 20px;
+  letter-spacing: -0.003em;
+  line-height: 32px;
 }
 
 * {
@@ -14,6 +20,9 @@ body {
 
 button {
   background: black;
+  font-size: 16px;
+  letter-spacing: -0.003em;
+  line-height: 24px;
 }
 
 code {
