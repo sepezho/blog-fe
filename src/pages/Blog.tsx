@@ -24,11 +24,12 @@ function Blog() {
   const [date, setDate] = useState(`loading...`)
   const [text, setText] = useState(`loading...`)
   const [views, setViews] = useState(`loading...`)
+  const [error, setError] = useState('')
 
   const { id } = useParams();
 
   useEffect(() => {
-    fetch('https://blog.sepezho.com:4646/api/post', {
+    fetch('https://api.blog.sepezho.com:4646/api/post', {
       body: JSON.stringify({ id: id }),
       method: "POST",
       headers: {
@@ -41,6 +42,8 @@ function Blog() {
       setDate(e.data[0].Date)
       setText(e.data[0].Text)
       setViews(e.data[0].Views)
+    }).catch(e => {
+      setError(`load error: ${e}`)
     })
   }, [])
 
@@ -56,7 +59,7 @@ function Blog() {
             views: {views}
             <br />
             date: {dayjs(date).format('DD/MM/YYYY')}
-            <ReactMarkdown children={text} />
+            <ReactMarkdown children={error ? error : text} />
           </MdContainer>
         </Container>
       </header>

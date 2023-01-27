@@ -28,18 +28,21 @@ const pagesInit = [
 
 const Home = () => {
   const [pages, setPages] = useState(pagesInit)
+  const [error, setError] = useState('')
 
   useEffect(() => {
-    fetch('https://blog.sepezho.com:4646/api/list').then(e => e.json()).then(e => {
+    fetch('https://api.blog.sepezho.com:4646/api/list').then(e => e.json()).then(e => {
       console.log(e)
       setPages(e.data.reverse())
+    }).catch(e => {
+      setError(`load error: ${e}`)
     })
   }, [])
 
   return <div>
     <ListTexts>
       <h1>Posts</h1>
-      {pages.map(e => (<Link to={`/post/${e.Id}`}><button key={e.Id}> {`#${e.Id} ||| ${dayjs(e.Date).fromNow()} ||| ${e.Title}`} </ button></Link>))}
+      {error ? error : pages.map(e => (<Link to={`/post/${e.Id}`}><button key={e.Id}> {`#${e.Id} ||| ${dayjs(e.Date).fromNow()} ||| ${e.Title}`} </ button></Link>))}
     </ListTexts>
   </div >;
 };
