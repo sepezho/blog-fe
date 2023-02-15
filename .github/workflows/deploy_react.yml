@@ -35,3 +35,5 @@ jobs:
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: ./build          
+        env:
+          REACT_APP_MODE: prod
