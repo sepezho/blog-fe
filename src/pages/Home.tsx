@@ -277,7 +277,7 @@ const Home = () => {
                 <br />
               </>
             )
-          } else {
+          } else if (!(n.Video && n.Video.includes('voice_messages'))) {
             resultNew.push(
               <>
                 -----------------
