@@ -178,7 +178,7 @@ const Home = () => {
     if (isPlaying) {
       audio.pause();
     } else {
-      audio.src = "http://localhost:4646/api/audio?file=" + file
+      audio.src = `${process.env.REACT_APP_MODE === 'dev' ? 'http://localhost:4646' : 'https://api.blog.sepezho.com:4646'}/api/audio?file=${file}`
       audio.play();
     }
     setIsPlaying(!isPlaying);
@@ -199,7 +199,8 @@ const Home = () => {
             responsive: true,
             fluid: true,
             sources: [{
-              src: "http://localhost:4646/api/video?file=" + n.Video,
+              src:
+                `${process.env.REACT_APP_MODE === 'dev' ? 'http://localhost:4646' : 'https://api.blog.sepezho.com:4646'}/api/video?file=${n.Video}`,
               type: 'video/mp4'
             }]
           };
@@ -216,7 +217,7 @@ const Home = () => {
                 {n.Date}
                 <br />
                 <video className="video" controls>
-                  <source src={"http://localhost:4646/api/video?file=" + n.Video} type="video/mp4"></source>
+                  <source src={`${process.env.REACT_APP_MODE === 'dev' ? 'http://localhost:4646' : 'https://api.blog.sepezho.com:4646'}/api/video?file=${n.Video}`} type="video/mp4"></source>
                 </video>
                 <br />
                 {n.Text}
@@ -232,7 +233,7 @@ const Home = () => {
                 <br />
                 {n.Date}
                 <br />
-                <VideoControls src={"http://localhost:4646/api/video?file=" + n.Video} />
+                <VideoControls src={`${process.env.REACT_APP_MODE === 'dev' ? 'http://localhost:4646' : 'https://api.blog.sepezho.com:4646'}/api/video?file=${n.Video}`} />
                 <br />
                 {n.Text}
                 <br />
