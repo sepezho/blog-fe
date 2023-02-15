@@ -220,7 +220,7 @@ const Home = () => {
                   <source src={`${process.env.REACT_APP_MODE === 'dev' ? 'http://localhost:4646' : 'https://api.blog.sepezho.com:4646'}/api/video?file=${n.Video}`} type="video/mp4"></source>
                 </video>
                 <br />
-                {n.Text}
+                <div dangerouslySetInnerHTML={{ __html: n.Text }}></div>
                 <br />
                 <br />
               </>
@@ -235,7 +235,7 @@ const Home = () => {
                 <br />
                 <VideoControls src={`${process.env.REACT_APP_MODE === 'dev' ? 'http://localhost:4646' : 'https://api.blog.sepezho.com:4646'}/api/video?file=${n.Video}`} />
                 <br />
-                {n.Text}
+                <div dangerouslySetInnerHTML={{ __html: n.Text }}></div>
                 <br />
                 <br />
               </>
@@ -253,7 +253,7 @@ const Home = () => {
 
                 <button onClick={() => toggleAudio(n.Video)}>{isPlaying ? 'Pause audio' : 'Play audio'}</button>
                 <br />
-                {n.Text}
+                <div dangerouslySetInnerHTML={{ __html: n.Text }}></div>
                 <br />
                 <br />
               </>
@@ -272,7 +272,7 @@ const Home = () => {
                 <br />
                 <img src={areaImageObjectURL} alt='' />
                 <br />
-                {n.Text}
+                <div dangerouslySetInnerHTML={{ __html: n.Text }}></div>
                 <br />
                 <br />
               </>
@@ -285,7 +285,7 @@ const Home = () => {
                 <br />
                 {n.Date}
                 <br />
-                {n.Text}
+                <div dangerouslySetInnerHTML={{ __html: n.Text }}></div>
                 <br />
                 <br />
               </>
