@@ -20,7 +20,6 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="post/:id" element={<Blogs />} />
-            <Route path="*" element={<NoPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

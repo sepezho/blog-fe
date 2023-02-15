@@ -4,6 +4,8 @@ import ReactMarkdown from 'react-markdown'
 import styled from 'styled-components'
 import dayjs from 'dayjs'
 
+import rehypeRaw from 'rehype-raw'
+import remarkGfm from 'remark-gfm'
 import {
   useParams
 } from "react-router-dom";
@@ -29,7 +31,7 @@ function Blog() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch('https://api.blog.sepezho.com:4646/api/post', {
+    fetch(`${process.env.REACT_APP_MODE === 'dev' ? 'http://localhost:4646/' : 'https://api.blog.sepezho.com:4646/'}api/post`, {
       body: JSON.stringify({ id: id }),
       method: "POST",
       headers: {
@@ -46,7 +48,8 @@ function Blog() {
       setError(`load error: ${e}`)
     })
   }, [])
-
+  const adf = `A paragraph with *emphasis* and **strong importance**.<br /> (link)[https://google.com]`
+  console.log(text)
   return (
     <div className="App">
       <header className="App-header">
@@ -59,7 +62,8 @@ function Blog() {
             views: {views}
             <br />
             date: {dayjs(date).format('DD/MM/YYYY')}
-            <ReactMarkdown children={error ? error : text} />
+            <ReactMarkdown rehypePlugins={[rehypeRaw]} remarkPlugins={[remarkGfm]} children={error ? error : text} />
+
           </MdContainer>
         </Container>
       </header>
