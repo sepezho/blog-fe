@@ -29,3 +29,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.video-window {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+}
+.video {
+  width: 200px;
+  height: 200px;
+}
+.play-pause-button {
+  width: 60px;
+  max-width: 60px;
+}
